@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MaintainIt_SP.StartupPages.LoginPage">
+    <StackLayout Margin="20,20,20,20" Spacing="25">
+        <Label Text="Welcome Back" 
+               FontSize="25"
+               HorizontalOptions="Center"/>
+        <StackLayout Spacing="15">
+            <Entry Placeholder="Username"
+                   x:Name="Username"/>
+            <Entry Placeholder="Password"
+                   x:Name="PWOriginal"
+                   IsPassword="true"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1"
+                            HorizontalOptions="End"
+                            Text="Login!"
+                            FontSize="20"
+                            x:Name="Login"
+                            Clicked="OnLoginButtonClicked"/>
+           </Grid>    
+        </StackLayout>
+    </StackLayout>    
+</ContentPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MaintainIt_SP.StartupPages.SignUpPage">
+    <StackLayout Margin="20,20,20,20" Spacing="25">
+        <Label Text="Tell us about yourself" 
+               FontSize="25"
+               HorizontalOptions="Center"/>
+        <StackLayout Spacing="15">
+            <Entry Placeholder="First Name?"
+                   PlaceholderColor="Black"
+                   x:Name="FirstName"
+                   Text="{Binding FirstName}"/>
+            <Entry Placeholder="Last Name?"
+                   PlaceholderColor="Black"
+                   x:Name="LastName"
+                   Text="{Binding LastName}"/>
+            <Entry Placeholder="Choose a Username"
+                   PlaceholderColor="Black"
+                   x:Name="Username"
+                   Text="{Binding Username}"/>
+            <Entry Placeholder="Password"
+                   PlaceholderColor="Black"
+                   x:Name="PWOriginal"
+                   IsPassword="true"
+                   Text="{Binding PWOriginal}"/>
+            <Entry Placeholder="Confirm Password"
+                   PlaceholderColor="Black"
+                   x:Name="PWConfirm"
+                   IsPassword="true"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1"
+
+                            HorizontalOptions="End"
+                            Text="Done!"
+                            FontSize="20"
+                            x:Name="Next"
+                            Clicked="OnDoneButtonClicked"/>
+            </Grid>    
+        </StackLayout>
+    </StackLayout>    
+</ContentPage>

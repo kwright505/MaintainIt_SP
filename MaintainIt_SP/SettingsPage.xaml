@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MaintainIt_SP.SettingsPage"
+             Title="Settings">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center">
+                <Label Text="This is the Settings Page">
+            
+                </Label>
+            </StackLayout> 
+            
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="Notification Settings">
+                        <SwitchCell Text="Notifications" On="true"/>
+                        <SwitchCell Text="Do Not Disturb"/>
+                    </TableSection>
+                    
+                    <TableSection Title="User Settings">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                 <Button Text="Change Password"
+                                         TextColor="Black"
+                                         Padding="20"
+                                         HorizontalOptions="Start"
+                                         x:Name="CPass"
+                                         Clicked="CPassClicked"/> 
+                                <Image Source="next.png"
+                                       HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <Button Text="Log Out"
+                                    TextColor="Red"
+                                    x:Name="LogOut"
+                                    Clicked="LogOutClicked"/>
+                        </ViewCell>  
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </ScrollView>      
+    </ContentPage.Content>
+</ContentPage>
