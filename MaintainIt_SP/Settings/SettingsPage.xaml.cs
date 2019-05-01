@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MaintainIt_SP.StartupPages;
 using Xamarin.Forms;
 
-namespace MaintainIt_SP
+namespace MaintainIt_SP.Settings
 {
     public partial class SettingsPage : ContentPage
     {
@@ -22,7 +22,7 @@ namespace MaintainIt_SP
             }
         }
 
-        private async void CPassClicked(object sender, EventArgs e)
+        private void CPassClicked(object sender, EventArgs e)
         {
             //TODO Create a way to change password 
 

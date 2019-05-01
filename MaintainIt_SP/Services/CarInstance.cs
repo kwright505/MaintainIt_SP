@@ -4,12 +4,11 @@ using SQLite;
 namespace MaintainIt_SP.Services
 {
 
-    public class CarInstance
+    public class CarInstance : ItemInstance
     {
-        public string Manufacturer { get; set; }
         public string Model { get; set; }
-        public int Year { get; set; }
+        public string Year { get; set; }
         public string VIN { get; set; }
-        public string ItemType { get; set; }
+        public DateTime DatePurchaced { get; set; }
     }
 }

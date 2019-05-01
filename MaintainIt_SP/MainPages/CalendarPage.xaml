@@ -6,7 +6,44 @@
              x:Class="MaintainIt_SP.MainPages.CalendarPage"
              Title="Calendar"
              Icon="calendar1">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20,5,20,5"/>
+            <Setter Property="FontAttributes" Value="Bold,Italic"/>
+            <Setter Property="TextColor" Value="Blue"/>
+            <Setter Property="BorderWidth" Value="3"/>
+            <Setter Property="BorderColor" Value="Blue"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <syncfusion:SfCalendar x:Name="calendar" />
+        <!--<syncfusion:SfCalendar x:Name="calendar" />-->
+        <ScrollView>
+               <StackLayout>
+            <Button Text="Refresh"
+                    Clicked="RefreshClicked"/>
+            <ListView x:Name="RemindersList"
+                       HasUnevenRows="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding ReminderName}"
+                                           FontAttributes="Bold"
+                                           FontSize="16"/>
+                                    <Label Text="{Binding ReminderDesc}"
+                                           FontAttributes="Bold"
+                                           FontSize="16"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            <Button Text="test"
+                    Clicked="TestClicked"/>
+            <Button Text="Add New Reminder"
+                    x:Name="Reminder"
+                    Clicked="AddReminderClicked"/>
+        </StackLayout>  
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

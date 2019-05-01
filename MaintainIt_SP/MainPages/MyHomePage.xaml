@@ -1,23 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MaintainIt_SP"
+             xmlns:local="clr-namespace:MaintainIt_SP.MainPages"
              x:Class="MaintainIt_SP.MainPages.MyHomePage"
              Title="Home"
-             Icon="home1">
+             Icon="home1"
+             BackgroundImage="HouseBackground.jpg">
+     <ContentPage.ToolbarItems> 
+        <ToolbarItem Icon="addicon"
+                     Text="Add"
+                     x:Name="AddHomeItem"
+                     Clicked="AddHomeItemClicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20">
-                <Image Source="StartupHouse.jpg"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Start"/>
-                <Label Text="This is the My Home Page" 
-                       HorizontalOptions="CenterAndExpand"
-                       VerticalOptions="Center"> 
+            <StackLayout Spacing="20" >
+                <Label Text="My Home Inventory"
+                       FontAttributes="Italic, Bold"
+                       HorizontalOptions="Center"
+                       FontSize="30"
+                       Margin="0,20,0,0"> 
                 </Label>
-                <ListView x:Name="HeaderList"  Header="Items">
-                    
+                <ListView x:Name="itemList"
+                          ItemTapped="OnTapEventAsync"
+                          HasUnevenRows="true"
+                          BackgroundColor="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="80">
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Delete" 
+                                              IsDestructive="True" 
+                                              Clicked="DeleteClicked" />
+                                </ViewCell.ContextActions>
+                                <StackLayout Padding="15,0" BackgroundColor="White"
+                                             Margin="5,5,5,5">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Manufacturer}"
+                                               FontAttributes="Bold"
+                                               FontSize="16"/>
+                                        <Label Text="{Binding ItemType}"
+                                               FontAttributes="Bold"
+                                               FontSize="16"/>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label Text="{Binding ItemName}"
+                                               FontAttributes="Bold"
+                                               TextColor="Blue"/>
+                                        <Label Text="{Binding ItemDesc}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
                 </ListView>
+                <Button Text="test"
+                        Clicked="TestClicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -1,5 +1,86 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MaintainIt_SP.MainPages.AddItemPopup">
-    <ContentPage.Content>
-    </ContentPage.Content>
-</ContentPage>
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 x:Class="MaintainIt_SP.MainPages.AddItemPopup"
+                 Title="Add Item">
+
+    <ScrollView>
+        <StackLayout Margin="12"
+                     Padding="24" 
+                     BackgroundColor="White">
+            <Label Text="Add New Inventory Item"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="25"/>
+            <StackLayout>
+                <Picker IsEnabled="false"
+                        x:Name="Location">
+                    <Picker.Items>
+                        <x:String>Home</x:String>
+                        <x:String>Garage</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Item Type"/>
+                    <Label Text="*"
+                           TextColor="Red"/>
+                </StackLayout>
+                <Picker ItemsSource="{Binding ItemInstance}"
+                        ItemDisplayBinding="{Binding ItemType}"
+                        SelectedItem="{Binding NewItemType}"
+                        SelectedIndexChanged="Handle_SelectedIndexChanged"
+                        x:Name="ItemType">
+                    <Picker.Items>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Manufacturer"/>
+                    <Label Text="*"
+                           TextColor="Red"/>
+                </StackLayout>
+                <Picker ItemsSource="{Binding ItemInstance}"
+                        ItemDisplayBinding="{Binding Manafacturer}"
+                        SelectedItem="{Binding ItemMan}"
+                        x:Name="Manufacturer"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Item Name"/>
+                <Entry x:Name="ItemName"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Item Description"/>
+                <Entry x:Name="ItemDesc"/>
+            </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Date Purchased"/>
+                    <Label Text="*"
+                           TextColor="Red"/>
+                </StackLayout>
+                <DatePicker x:Name="DatePurchased"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+            <Button Text="Cancel"
+                    TextColor="Red"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    HorizontalOptions="End"
+                    x:Name="exit"
+                    Clicked="ExitClicked"/>
+            <Button Text="Add"
+                    TextColor="Blue"
+                    BorderWidth="1" 
+                    BorderColor="Blue"
+                    Clicked="AddClicked"/>
+           </StackLayout>
+        </StackLayout>
+        
+    </ScrollView>
+
+</pages:PopupPage>

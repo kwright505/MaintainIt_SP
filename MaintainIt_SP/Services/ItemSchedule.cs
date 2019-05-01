@@ -3,8 +3,7 @@ namespace MaintainIt_SP.Services
 {
     public class ItemSchedule
     {
-        public ItemSchedule()
-        {
-        }
+        public string Message { get; set; }
+        public string NotifyDate { get; set; }
     }
 }

@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using System.IO;
 using SQLite;
-using MaintainIt_SP;
+using MaintainIt_SP.MainPages;
 using Xamarin.Forms;
+using Rg.Plugins.Popup.Services;
 
-namespace MaintainIt_SP
+namespace MaintainIt_SP.StartupPages
 {
-    public partial class SignUpPage : ContentPage
+    public partial class SignUpPage
     {
 
         public SignUpPage()
         {
             InitializeComponent();
         }
+
+
+        private void CancelClicked(object sender, EventArgs e)
+        {
+            ClosePopup();
+        }
+
 
         private async void OnDoneButtonClicked(object sender, EventArgs e)
         {
@@ -22,11 +30,17 @@ namespace MaintainIt_SP
             {
 
                 var userItem = (User)BindingContext;
-                await App.Database.SaveUser(userItem);
+                //await App.Database.SaveUser(userItem);
                 await DisplayAlert("User Created", "user created for " + userItem.FirstName + " " + userItem.LastName + ".", "OK");
 
+                ClosePopup();
                 await Navigation.PushModalAsync(new NavigationPage(new DashboardPage()));
             }
+        }
+
+        private async void ClosePopup()
+        {
+            await PopupNavigation.Instance.PopAsync(true);
         }
 
         public bool CheckNewUserCred()

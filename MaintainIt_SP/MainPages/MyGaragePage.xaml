@@ -4,19 +4,23 @@
              xmlns:local="clr-namespace:MaintainIt_SP"
              x:Class="MaintainIt_SP.MainPages.MyGaragePage"
              Title="Garage"
-             Icon="garage1">
+             Icon="garage1"
+             BackgroundImage="garage.jpg">
+   <ContentPage.ToolbarItems> 
+        <ToolbarItem Icon="addicon"
+                     Text="Add"
+                     x:Name="AddGarageItem"
+                     Clicked="AddGarageItemClicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20">
-                <Image/>
-                <Label Text="This is the My Garage Page" 
-                       HorizontalOptions="CenterAndExpand"
-                       VerticalOptions="Center"> 
-                </Label>
-                <ListView>
-                
-                </ListView>
-            </StackLayout>
+            <Label Text="Garage Inventory"
+                   FontAttributes="Italic, Bold"
+                   HorizontalOptions="Center"
+                   FontSize="30"
+                   Margin="0,20,0,0"
+                   TextColor="Black"/>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="MaintainIt_SP.StartupPages.SignUpPage">
-    <StackLayout Margin="20,20,20,20" Spacing="25">
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                x:Class="MaintainIt_SP.StartupPages.SignUpPage">
+    <StackLayout Margin="12" 
+                 Padding="24" 
+                 BackgroundColor="Silver"
+                 VerticalOptions="Center">
         <Label Text="Tell us about yourself" 
                FontSize="25"
                HorizontalOptions="Center"/>
@@ -34,13 +38,21 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                     <Button Grid.Column="1"
-
+                            HorizontalOptions="End"
+                            BackgroundColor="Transparent"
+                            BorderWidth="0"
+                            Text="Cancel"
+                            TextColor="Red"
+                            Clicked="CancelClicked"/>
+                    <Button Grid.Column="2"
                             HorizontalOptions="End"
                             Text="Done!"
-                            FontSize="20"
+                            BackgroundColor="Transparent"
+                            BorderWidth="0"
+                            TextColor="Blue"
                             x:Name="Next"
                             Clicked="OnDoneButtonClicked"/>
             </Grid>    
         </StackLayout>
     </StackLayout>    
-</ContentPage>
+</pages:PopupPage>

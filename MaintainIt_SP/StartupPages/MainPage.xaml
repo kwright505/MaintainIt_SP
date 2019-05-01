@@ -5,27 +5,35 @@
              x:Class="MaintainIt_SP.StartupPages.MainPage"
              BackgroundImage="HouseBackground.jpg">
     <Image Source="MaintainIt"/>
-    <StackLayout Margin="0,100,0,0"
-                 HorizontalOptions="Center"
-                 VerticalOptions="Start">
-        <Image 
-               Source="MaintainIt"/>
-        <Label Text="Welcome to Maintain It!" 
-               HorizontalOptions="Center" 
-               VerticalOptions="Center"
-               FontAttributes="Bold"
+    <StackLayout VerticalOptions="Center">
+        <StackLayout>
+            <Label Text="Welcome to" 
+               HorizontalOptions="Center"
+               FontAttributes="Italic"
                FontSize="30"/>
+            <Label Text="MaintainIt!"
+                   HorizontalOptions="Center"
+                   FontSize="60"/>
+        </StackLayout>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Text="Sign Up"
-                    x:Name="SignUp"
+                    Margin="20,5,5,5"
+                    BorderWidth="3"
+                    BorderColor="Blue"
+                    TextColor="Blue"
+                    FontAttributes="Italic,Bold"
                     Clicked="OnSignUpButtonClicked"/>
             <Button Grid.Column="1"
                     Text="Log In"
-                    x:Name="LogIn"
+                    Margin="5,5,20,5"
+                    BorderWidth="3" 
+                    BorderColor="Blue"
+                    TextColor="Blue"
+                    FontAttributes="Italic,Bold"
                     Clicked="OnLogInButtonClicked"/>
         </Grid>    
     </StackLayout>

@@ -4,6 +4,7 @@ using System.Linq;
 using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
+using MaintainIt_SP.MainPages;
 
 namespace MaintainIt_Test
 {
@@ -30,5 +31,13 @@ namespace MaintainIt_Test
         {
             app.Screenshot("First screen.");
         }
+
+        [Test]
+        public void CarVin() 
+        {
+            //string vin = "2HGFC2E69KH527917";
+            //AddCarVin(vin);
+        }
+
     }
 }

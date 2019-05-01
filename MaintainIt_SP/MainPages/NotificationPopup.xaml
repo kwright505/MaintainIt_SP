@@ -1,5 +1,68 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MaintainIt_SP.MainPages.NotificationPopup">
-    <ContentPage.Content>
-    </ContentPage.Content>
-</ContentPage>
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 x:Class="MaintainIt_SP.MainPages.NotificationPopup">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20,5,20,5"/>
+            <Setter Property="FontAttributes" Value="Bold,Italic"/>
+            <Setter Property="TextColor" Value="Blue"/>
+            <Setter Property="BorderWidth" Value="3"/>
+            <Setter Property="BorderColor" Value="Blue"/>
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Margin="12"
+                     Padding="24" 
+                     BackgroundColor="White">
+            <Label Text="Add New Inventory Item"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="25"/>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Remainder Name"/>
+                    <Label Text="*"
+                           TextColor="Red"/>
+                </StackLayout>
+                <Entry x:Name="ReminderName"/>
+            </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Reminder Description"/>
+                    <Label Text="*"
+                           TextColor="Red"/>
+                </StackLayout>
+                <Entry x:Name="ReminderDesc"/>
+            </StackLayout>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="When do you want to get Reminded?"/>
+                    <Label Text="*"
+                           TextColor="Red"/>
+                </StackLayout>
+                <DatePicker x:Name="ReminderDate"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+            <Button Text="Cancel"
+                    TextColor="Red"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    HorizontalOptions="End"
+                    x:Name="exit"
+                    Clicked="ExitClicked"/>
+            <Button Text="Done"
+                    TextColor="Blue"
+                    BorderWidth="1" 
+                    BorderColor="Blue"
+                    Clicked="DoneClicked"/>
+           </StackLayout>
+        </StackLayout>
+        
+    </ScrollView>
+    
+</pages:PopupPage>
+
+

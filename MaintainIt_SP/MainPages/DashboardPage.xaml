@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MaintainIt_SP"
              x:Class="MaintainIt_SP.MainPages.DashboardPage"
-             Title="Dashboard">
+             Title="Dashboard"
+             BackgroundColor="White">
     <ContentPage.ToolbarItems> 
         <ToolbarItem Icon="settings"
                      Text="Settings"
@@ -11,24 +12,34 @@
                      Clicked="SettingsClicked">
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20,5,20,5"/>
+            <Setter Property="FontAttributes" Value="Bold,Italic"/>
+            <Setter Property="TextColor" Value="Blue"/>
+            <Setter Property="BorderWidth" Value="3"/>
+            <Setter Property="BorderColor" Value="Blue"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout HorizontalOptions="Center"
-                         VerticalOptions="Center">
-                <Label Text="Welcome to MaintainIt">     
-                </Label>
-                <Button Text="My Home"
-                        x:Name="MyHome"
-                        Clicked="GoToMyHome"/>
-                <Button Text="My Garage"
-                        x:Name="MyGarage"
-                        Clicked="GoToMyGarage"/>
-                <Button Text="Calendar"
-                        x:Name="Calendar"
-                        Clicked="GoToCalendar"/>
-                <Button Text="Documents"
-                        x:Name="Documents"
-                        Clicked="GoToDocuments"/>
+            <StackLayout>
+                <Image Source="Picture1"
+                       Scale=".5"/>
+                <StackLayout>
+                    <Button Text="My Home"
+                            x:Name="MyHome"
+                            Clicked="GoToMyHome"/>
+                    <Button Text="My Garage"
+                            x:Name="MyGarage"
+                            Clicked="GoToMyGarage"/>
+                    <Button Text="Calendar"
+                            x:Name="Calendar"
+                            Clicked="GoToCalendar"/>
+                    <Button Text="Documents"
+                            x:Name="Documents"
+                            Clicked="GoToDocuments"/>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

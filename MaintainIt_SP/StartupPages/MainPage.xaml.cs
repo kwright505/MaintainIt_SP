@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using SQLite;
+using Rg.Plugins.Popup.Services;
 
-namespace MaintainIt_SP
+namespace MaintainIt_SP.StartupPages
 {
     public partial class MainPage : ContentPage
     {
-        string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "UserDB.db3");
+        //string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "UserDB.db3");
 
         public MainPage()
         {
@@ -21,14 +22,14 @@ namespace MaintainIt_SP
 
         private async void OnSignUpButtonClicked(object sender, EventArgs e)
         {
-            Console.WriteLine("Going to Sign up page");
-            Console.WriteLine(App.Database.GetUsers());
-            await Navigation.PushAsync(new SignUpPage() { BindingContext = new User() });
+            //Console.WriteLine("Going to Sign up page");
+            //Console.WriteLine(App.Database.GetUsers());
+            await PopupNavigation.Instance.PushAsync(new SignUpPage());
         }
 
         private async void OnLogInButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            await PopupNavigation.Instance.PushAsync(new LoginPage());
         }
     }
 }

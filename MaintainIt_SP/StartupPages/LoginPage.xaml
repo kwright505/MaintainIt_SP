@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
              x:Class="MaintainIt_SP.StartupPages.LoginPage">
-    <StackLayout Margin="20,20,20,20" Spacing="25">
-        <Label Text="Welcome Back" 
+    <StackLayout Margin="12" 
+                 Padding="24" 
+                 BackgroundColor="Silver"
+                 VerticalOptions="Center">
+        <Label Text="Welcome Back!" 
                FontSize="25"
                HorizontalOptions="Center"/>
         <StackLayout Spacing="15">
@@ -19,11 +23,20 @@
                 </Grid.ColumnDefinitions>
                     <Button Grid.Column="1"
                             HorizontalOptions="End"
-                            Text="Login!"
-                            FontSize="20"
+                            BackgroundColor="Transparent"
+                            BorderWidth="0"
+                            Text="Cancel"
+                            TextColor="Red"
+                            Clicked="CancelClicked"/>
+                    <Button Grid.Column="2"
+                            HorizontalOptions="End"
+                            BackgroundColor="Transparent"
+                            BorderWidth="0"
+                            Text="Login"
+                            TextColor="Blue"
                             x:Name="Login"
                             Clicked="OnLoginButtonClicked"/>
            </Grid>    
         </StackLayout>
     </StackLayout>    
-</ContentPage>
+</pages:PopupPage>

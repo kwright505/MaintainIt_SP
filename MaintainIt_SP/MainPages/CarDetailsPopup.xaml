@@ -1,5 +1,63 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MaintainIt_SP.MainPages.CarDetailsPopup">
-    <ContentPage.Content>
-    </ContentPage.Content>
-</ContentPage>
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 x:Class="MaintainIt_SP.MainPages.CarDetailsPopup"
+                 Title="Add Car">
+    <ScrollView>
+        <StackLayout Margin="12"
+                     Padding="24" 
+                     BackgroundColor="White">
+            <Label Text="Car Details"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="25"/>
+            <StackLayout>
+                <Label Text="VIN Number"/>
+                <Entry x:Name="VINNumber"
+                       Text="{Binding VINNumber}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Year"/>
+                <Entry x:Name="Year"
+                       Text="{Binding Year}"
+                       Keyboard="Numeric"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Manufacturer"/>
+                <Picker ItemsSource="{Binding CarInstance}"
+                        ItemDisplayBinding="{Binding Manafacturer}"
+                        SelectedItem="{Binding CarMake}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Model"/>
+                <Entry x:Name="Model"
+                       Text="{Binding Model}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Date Purchased"/>
+                <DatePicker x:Name="DatePurchased"
+                            Date="{Binding DatePurchased}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+            <Button Text="Cancel"
+                    TextColor="Red"
+                    BackgroundColor="Transparent"
+                    BorderWidth="0"
+                    HorizontalOptions="End"
+                    x:Name="exit"
+                    Clicked="ExitClicked"/>
+            <Button Text="Save"
+                    TextColor="Blue"
+                    BorderWidth="1" 
+                    BorderColor="Blue"
+                    Clicked="SaveClicked"/>
+           </StackLayout>
+        </StackLayout>
+        
+    </ScrollView>
+
+</pages:PopupPage>
+
+

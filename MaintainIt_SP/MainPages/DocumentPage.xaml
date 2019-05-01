@@ -3,14 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="MaintainIt_SP.MainPages.DocumentPage"
              xmlns:local="clr-namespace:MaintainIt_SP.MainPages"
-             Title="Documents"
-             Icon="docs1">
+             Title="Docs"
+             Icon="docs1"
+             BackgroundColor="Gray">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20,5,20,5"/>
+            <Setter Property="FontAttributes" Value="Bold,Italic"/>
+            <Setter Property="TextColor" Value="Blue"/>
+            <Setter Property="BorderWidth" Value="3"/>
+            <Setter Property="BorderColor" Value="Blue"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center"
-                     VerticalOptions="Center">
-            <Label Text="This is the Documents Page">
-                
-            </Label>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Upload Your Documents"
+                       FontAttributes="Italic, Bold"
+                       HorizontalOptions="Center"
+                       FontSize="30"
+                       Margin="0,20,0,0"
+                       TextColor="Black"/>
+                <Frame Margin="5,5,5,5" 
+                       BorderColor="Black"
+                       HeightRequest="350">
+                    <Image x:Name="FileImage"
+                       Aspect="AspectFit"/>
+                </Frame>
+                <Label x:Name="LocalPathName"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Choose Photo"
+                            Clicked="ChoosePhotoClicked"
+                            Margin="20,5,5,5"
+                            BorderWidth="3"
+                            BorderColor="Blue"
+                            TextColor="Blue"
+                            FontAttributes="Italic,Bold"/>
+                    <Button Grid.Column="1"
+                            Text="Take Photo"
+                            Clicked="TakePhotoClicked"
+                            Margin="5,5,20,5"
+                            BorderWidth="3" 
+                            BorderColor="Blue"
+                            TextColor="Blue"
+                            FontAttributes="Italic,Bold"/>
+                </Grid>
+                <Button Text="Upload Photo"
+                        Clicked="UploadPhotoClicked"/>
+            </StackLayout>
+        </ScrollView> 
     </ContentPage.Content>
 </ContentPage>
